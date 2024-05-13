@@ -8,6 +8,7 @@ import eu.decentsoftware.holograms.api.utils.exception.LocationParseException;
 import eu.decentsoftware.holograms.api.utils.file.FileUtils;
 import eu.decentsoftware.holograms.api.utils.scheduler.S;
 import eu.decentsoftware.holograms.api.utils.tick.Ticked;
+import lombok.Getter;
 import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -68,6 +69,13 @@ public class HologramManager extends Ticked {
         }
     }
 
+    /**
+     * Update the visibility of the hologram for the given player.
+     *
+     * @param player - The player to update the visibility for.
+     * @param hologram - The hologram to update the visibility for.
+     * @return True if the hologram was shown, false otherwise.
+     */
     public void updateVisibility(@NonNull Player player, @NonNull Hologram hologram) {
         if (hologram.isDisabled()) {
             return;

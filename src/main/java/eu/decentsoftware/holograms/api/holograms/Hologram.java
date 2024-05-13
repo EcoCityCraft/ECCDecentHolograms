@@ -633,14 +633,10 @@ public class Hologram extends UpdatingHologramObject implements ITicked {
             if (page != null && page.size() > 0 && canShow(player) && isInDisplayRange(player)) {
                 if (isVisible(player)) {
                     hide(player);
+                    return true; // Skip a tick before updating, should fix the previous issue with clients desyncing.
                 }
-                if (Version.after(8)) {
-                    showPageTo(player, page, pageIndex);
-                } else {
-                    // We need to run the task later on older versions as, if we don't, it causes issues with some holograms *randomly* becoming invisible.
-                    // I *think* this is from despawning and spawning the entities (with the same ID) in the same tick.
-                    S.sync(() -> showPageTo(player, page, pageIndex), 0L);
-                }
+
+                showPageTo(player, page, pageIndex);
                 return true;
             }
             return false;

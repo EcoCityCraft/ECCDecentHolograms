@@ -34,6 +34,8 @@ public class Settings {
     public static double DEFAULT_HEIGHT_SMALLHEAD = 0.6;
     @Key(value = "defaults.display-range", min = 1, max = 48)
     public static int DEFAULT_DISPLAY_RANGE = 48;
+    @Key(value = "defaults.item-display-range", min = 1, max = 48)
+    public static int DEFAULT_ITEM_DISPLAY_RANGE = 16;
     @Key(value = "defaults.update-range", min = 1, max = 48)
     public static int DEFAULT_UPDATE_RANGE = 48;
     @Key(value = "defaults.update-interval", min = 1, max = 1200)
@@ -42,6 +44,8 @@ public class Settings {
     public static int DEFAULT_LRU_CACHE_SIZE = 500;
     @Key("allow-placeholders-inside-animations")
     public static boolean ALLOW_PLACEHOLDERS_INSIDE_ANIMATIONS = false;
+    @Key(value = "defaults.minimum-session-ticks-item-line", min = 0)
+    public static int DEFAULT_MINIMUM_SESSION_TICKS_ITEM_LINE = 40;
 
     public static Map<String, String> CUSTOM_REPLACEMENTS = ImmutableMap.<String, String>builder()
             .put("[x]", "\u2588")
